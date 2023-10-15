@@ -1,0 +1,82 @@
+@import "../../Style/container";
+@import "../../Style/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.products {
+    &__photo {
+      &_header {
+        margin-top: 40px;
+        margin-bottom: 7px;
+        @include flex(flex-start, center, 100px);
+        h1 {
+          color: #000;
+          font-family: Montserrat;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 130%; /* 52px */
+          letter-spacing: 1.2px;
+          margin-left: 30px;
+        }
+        button {
+          color: #8b8b8b;
+          text-align: center;
+          font-family: Montserrat;
+          font-size: 12px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 130%; /* 15.6px */
+          letter-spacing: 0.36px;
+          background-color: transparent;
+          // cursor: pointer;
+          width: 120px;
+          height: 30.968px;
+          flex-shrink: 0;
+          border: 2px solid rgba(139, 139, 139, 1);
+        }
+      }
+      &_div {
+        margin-bottom: 100px;
+        @include flex(center, center, 35px);
+        // img {
+        //   // height: 350px;
+        //   // max-width: 318px;
+        //   // object-fit: cover;
+        // }
+          flex-wrap: wrap;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 90px;
+        p {
+          margin-top: 5px;
+          text-align: center;
+          color: #000;
+          font-family: Montserrat;
+          font-style: normal;
+          line-height: 130%; /* 23.4px */
+         font-size: 16px;
+         font-weight: 500;
+         line-height: 130%; /* 20.8px */
+         letter-spacing: 0.48px;
+        }
+        // @media (max-width: 1400px) {
+        //   gap: 10px;
+        // }
+        // @media (max-width: 1330px) {
+        //   flex-wrap: wrap;
+        //   justify-content: center;
+        // }
+      }
+    }
+  }
+
+  .imgProduct{
+    height: 319px;
+    max-width: 276px;
+    object-fit: cover;
+    border-radius: 20px;
+    // @media (max-width: 1000px) {
+    //   max-height: 200px;
+    //   }
+  }

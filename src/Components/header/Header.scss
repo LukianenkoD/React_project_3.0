@@ -1,0 +1,66 @@
+@import "../Style/container";
+@import "../Style/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.header {
+    .active{
+      color: green;
+      cursor: default;
+      font-weight: 600;
+    }
+    margin-top: 20px;
+    // margin-left: 20px;
+    // margin-right: 20px;
+    @media (max-width: 1420px) {
+      gap: 420px;
+    }
+    @media (max-width: 1240px) {
+      gap: 320px;
+    }
+    @media (max-width: 1160px) {
+      flex-wrap: wrap;
+      gap: 50px;
+    }
+    @include flex(center, center, 620px);
+    &__right_part {
+      @include flex(center, center, 59px);
+      a {
+        text-decoration: none;
+        
+      }
+    }
+    &__logo {
+      @include flex(center, center, 0);
+    }
+    &__btn_catalog {
+      @include flex(center, center, 0);
+      background-color: RGB(51, 153, 51);
+      min-width: 129px;
+      min-height: 49px;
+      border-radius: 5%;
+      box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+      p {
+        color: rgba(255, 255, 255, 1);
+        font-family: "Montserrat";
+        font-size: 16px;
+      }
+    }
+    &__menu {
+      @include flex(space-around, center, 0);
+      gap: 55px;
+      min-height: 72px;
+      @media (max-width: 1140px) {
+        flex-wrap: wrap;
+      }
+      a{
+        text-decoration: none;
+        color: #000;
+        font-family: "Montserrat";
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        height: 70px;
+        margin-top: 30px;
+      }
+    }
+  }

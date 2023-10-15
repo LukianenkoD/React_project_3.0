@@ -1,9 +1,9 @@
 import React from 'react';
-import map from '../Img/map.svg'
+import map from '../pages/Img/map.svg'
 
 function Map() {
   return (
-    <div>
+    <div className='container'>
     <img style={{maxWidth:'100%', marginBottom:'38px'}} src={map} alt="map" />
 </div>
   )

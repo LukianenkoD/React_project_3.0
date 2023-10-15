@@ -1,0 +1,59 @@
+@import "../../Style/container";
+@import "../../Style/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+h1{
+  color: #000;
+  padding-left: 30px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  font-family: Montserrat;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%; /* 52px */
+  letter-spacing: 1.2px;  
+
+}
+.categories{
+    flex-wrap: wrap;
+    @include flex(center, center, 35px);
+    a{
+      text-decoration: none;
+    }
+      img {
+        height: 350px;
+        max-width: 318px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+      p {
+        margin-top: 20px;
+        text-align: center;
+        color: #000;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 23.4px */
+        letter-spacing: 0.54px;
+        
+      }
+      @media (max-width: 1400px) {
+        gap: 10px;
+      }
+      @media (max-width: 1330px) {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+}
+
+.pCategories{
+  color: #000;
+
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 130%; /* 23.4px */
+  letter-spacing: 0.54px;
+}

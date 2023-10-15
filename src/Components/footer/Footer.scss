@@ -1,0 +1,90 @@
+@import "../Style/container";
+@import "../Style/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+.footer {
+    flex-direction: column;
+    @media (max-width: 1420px) {
+      gap: 100px;
+    }
+    @media (max-width: 1310px) {
+      gap: 50px;
+    }
+    
+  
+    @include flex(center, flex-start, 211px);
+    &__div{
+      margin-top: 120px;
+      display: flex;
+      @media (max-width: 1190px) {
+        flex-wrap: wrap;
+      }
+      &_left {
+        @media (max-width: 690px) {
+          min-width: 480px;
+        }
+    
+        min-width: 610px;
+        color: #000;
+        h2 {
+          font-size: 40px;
+          font-family: "Montserrat";
+        }
+        h1 {
+          @media (max-width: 690px) {
+            font-size: 50px;
+          }
+          font-size: 70px;
+          font-family: "Montserrat";
+        }
+      }
+      &_right {
+        color: #000;
+        max-width: 536px;
+        h2 {
+          margin-bottom: 25px;
+          font-size: 40px;
+          font-family: "Montserrat";
+          font-weight: 700;
+        }
+    
+        a {
+          color: #000;
+          font-family: Montserrat;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 600;
+          line-height: 130%; /* 52px */
+          text-decoration-line: underline;
+        }
+        p {
+          margin-top: 20px;
+          font-size: 18px;
+          font-family: "Montserrat";
+        }
+        h4 {
+          font-size: 24px;
+          font-family: "Montserrat";
+          font-style: normal;
+          font-weight: 600;
+        }
+      }
+      &_social {
+        @include flex(flex-start, center, 60px);
+        div {
+          text-align: center;
+          a {
+            text-decoration: none;
+          }
+          p {
+            color: #000;
+            font-family: "Montserrat";
+            font-size: "15px";
+            font-style: "normal";
+            font-weight: "600";
+          }
+        }
+      }
+    }
+    
+  }

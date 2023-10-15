@@ -1,20 +1,18 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
+import {NavLink} from "react-router-dom";
 import flowers from '../Img/image_main_flowers.svg';
-import Categories from './Categories';
+// import Categories from '../../catalog_categories/Categories';
 import Gnome from '../Img/main_img/gnome.svg';
-import Sale from './Sale';
-import SliderSwiper from './pajes/SliderSwiper';
+import Sale from '../../sale/Sale';
+import '../../Style/style.scss'
+import PageAllCategories from '../AllCategoriesPage/PageAllCategories';
+import AllCategories from '../AllCategoriesPage/AllCategories';
 
 
 
 function Main() {
   return (
     <>
-    <div>
-    <Header/>
-    </div>
     <main className="container main">
       <section className="container section1">
       <div className='section1__left' /*style={{width:"50%"}}*/>
@@ -42,9 +40,15 @@ function Main() {
       <div className='section2__categories container'>
         <div className='section2__categories_header'>
         <h1>Catalog</h1>
+        
+        <NavLink to='/PageAllCategories' className={({isActive})=>isActive?"active":""}>
         <button>All categories</button>
+        </NavLink>
         </div>
-        <Categories/>
+        {/* <Categories/> */}
+        <AllCategories/>
+        {/* <PageAllCategories/> */}
+        
       
        </div>
       </section>
@@ -72,10 +76,6 @@ function Main() {
  <div>
   <SliderSwiper/>
  </div> */}
-    
-    <div>
-    <Footer/>
-    </div>
     
     </>
   )

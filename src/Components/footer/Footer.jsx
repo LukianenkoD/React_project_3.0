@@ -1,7 +1,9 @@
 import React from 'react';
-import instagram from "../Img/icon-instagram.svg";
-import whatsApp from '../Img/icon-whatsapp.svg';
-import Map from './Map';
+import instagram from "../pages/Img/icon_instagram.svg";
+import whatsApp from '../pages/Img/icon-whatsapp.svg';
+import './Footer.scss';
+import '../Style/style.scss'
+
 
 
 
@@ -39,10 +41,7 @@ function Footer() {
 
         </div>
         </div>
-        
-        <div>
-        <Map/>
-        </div>
+
        
     </footer>
   )
