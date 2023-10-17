@@ -23,7 +23,7 @@ function PageAllProducts() {
     }, []);
   return (
     <>
-    <div>PageAllProducts</div>
+    <div className='products_div container'>All products</div>
     {/* <Filter/> */}
     <div  className="products__photo_div container">
         {products.map((product, index) => <ProductCard key={index} product={product}/>)}

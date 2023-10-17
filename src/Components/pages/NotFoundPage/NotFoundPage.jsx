@@ -1,5 +1,5 @@
 import React from "react";
-import NotFound from "./Img/not_found.svg";
+import NotFound from "../Img/not_found.svg";
 
 function NotFoundPage() {
   return (

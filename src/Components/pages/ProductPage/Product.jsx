@@ -40,8 +40,8 @@ function Product() {
 
   return (
     <>
-      <div>Product</div>
-      {productId}
+      {/* <div>Product</div>
+      {productId} */}
       <div className="container product">
         {products
           .filter((product) => product.id === +productId)

@@ -4,15 +4,15 @@
 
 .footer {
     flex-direction: column;
-    @media (max-width: 1420px) {
-      gap: 100px;
-    }
+    // @media (max-width: 1420px) {
+    //   gap: 100px;
+    // }
     @media (max-width: 1310px) {
       gap: 50px;
     }
     
   
-    @include flex(center, flex-start, 211px);
+    @include flex(center, flex-start, 100px);
     &__div{
       margin-top: 120px;
       display: flex;

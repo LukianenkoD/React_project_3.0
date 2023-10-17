@@ -19,9 +19,11 @@ function Main() {
             <h1>Sale</h1>
             <h2 style={{}}>New season</h2>
             <div className='section1__left_button'>
-          
-              <button style={{background: '#FFF', color: '#2D2D2D'}}>
+            <NavLink to='/ProductsWithDiscount' className={({isActive})=>isActive?"active":""}>
+            <button style={{background: '#FFF', color: '#2D2D2D'}}>
               Sale</button>
+        </NavLink>
+              
           
            
             {/* <button style={{background: 'none', color:'rgba(255, 255, 255, 1)'}}>Подробнее</button> */}
@@ -66,6 +68,7 @@ function Main() {
         </div>
       </section>
       <section className='section3 container'>
+        
         <h1>Sale</h1>
         <Sale/>
 

@@ -1,10 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import axios from "axios";
-import Header from '../header/Header';
-import Footer from '../footer/Footer';
-import Map from '../map/Map';
-import AddToCart from '../AddToCart';
-import ProductCard from '../ProductCard/ProductCard';
+import AddToCart from '../../AddToCart';
+import ProductCard from '../../ProductCard/ProductCard';
+import './ProductsWithDiscount.scss';
 
 function ProductsWithDiscount() {
 
@@ -25,7 +23,7 @@ function ProductsWithDiscount() {
 
   return (
     <>
-    <div>Products with sale</div>
+    <div className='discont container'>Products with sale</div>
     <div /*className="section3__sale container"*/ className="products__photo_div container">
           {
             photos.filter((product)=> product.discont_price).map((product)=>(

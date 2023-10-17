@@ -2,7 +2,8 @@ import React from 'react';
 import instagram from "../pages/Img/icon_instagram.svg";
 import whatsApp from '../pages/Img/icon-whatsapp.svg';
 import './Footer.scss';
-import '../Style/style.scss'
+import '../Style/style.scss';
+import Map from '../map/Map'
 
 
 
@@ -42,7 +43,7 @@ function Footer() {
         </div>
         </div>
 
-       
+       <Map />
     </footer>
   )
 }

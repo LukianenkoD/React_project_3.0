@@ -26,7 +26,7 @@ function PageAllCategories() {
  
   return (
     <>
-     <h1 className='container'>Categories</h1>
+     <h1 className='all_categories container'>Categories</h1>
      {/* <AllCategories categories = {categories}/> */}
      <div className="categories container">
         {categories.map((product, index) => {

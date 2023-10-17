@@ -6,7 +6,7 @@ import minus from "../Img/minus.svg";
 import right from '../Img/right.svg';
 import { useNavigate } from "react-router-dom";
 import { addToCard } from "../../../action/cardAction";
-import { changeState, increaseItemByIdAction, remItemByIdAction } from "../../../reducers/CartListReducer";
+import { changeState, decreaseItemByIdAction, increaseItemByIdAction, remItemByIdAction } from "../../../reducers/CartListReducer";
 // import { ChangeCard } from "../../../action/cardAction";
 function PageShoppingCart() {
   
@@ -16,15 +16,18 @@ function PageShoppingCart() {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-
-
+const array = cartList.map((elem)=> (elem.quantity?elem.quantity:1)*
+(Math.floor(elem.discont_price)?Math.floor(elem.discont_price):Math.round(elem.price))); 
+console.log(array);
+// const arrayTotal = array.reduce((acc,curr)=>acc+curr);
+// console.log(arrayTotal);
 
 console.log(cartList);
 
   return (
     <>
       <div className="container">
-        <h1>Shopping cart</h1>
+        <h1 className="shopping_cart_h1">Shopping cart</h1>
       </div>
       <div className="back">
       <button className="back__btn" onClick={() => navigate("/PageAllCategories")}>
@@ -36,67 +39,51 @@ console.log(cartList);
       <div className="container cart">
         <div>
           {cartList.map((product) => (
-            <div style={{ width: "824px" }} key={product.id}>
-              <div
-                style={{
-                  height: "1px",
-                  width: "824px",
-                  background: "#A7A7A7",
-                  marginTop: "40px",
-                  marginBottom: "40px",
-                }}
-              ></div>
+            <div className="cart__div"  key={product.id}>
+              <div className="line"></div>
               <span
                 onClick={() => dispatch(remItemByIdAction(product.id))}
-                className={"close"}
-              >
+                className={"close"} >
                 X
               </span>
-              <img
-                style={{
-                  width: "192px",
-                  height: "166px",
-                  borderRadius: "10px",
-                }}
+              <img className="cart__div_img"
                 src={`http://localhost:3333${product.image}`}
                 alt="product"
               />
               <h2>{product.title}</h2>
-    
+              <div>
+                
+                {product.discont_price?
+                <>
+                 <h4>{Math.floor(product.discont_price)}$</h4>
+                <h3>{Math.round(product.price)}$</h3>
+                </>
+               :
+                <h3>{Math.round(product.price)}$</h3>
+                }
+              </div>
+                
               
               
-    
+        
               <div className="cart quantity_inner">
-      <button  className="bt_minus">
-      <img src={minus} alt="minus" />
-    </button>
-    <input
-      type="number"
-      min={1}
-      max={100}
-      value={cartList.length}
-      className="quantity"
-    />
-     <button onClick={()=>dispatch(increaseItemByIdAction(product.price))} className="bt_plus">
-      <img src={plus} alt="plus" />
-    </button>
-
-  </div>
-  
+                <button onClick={()=>dispatch(decreaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))}  className="bt_minus">
+                  <img src={minus} alt="minus" />
+                </button>
+                  <input
+                  type="number"
+                  min={1}
+                  max={100}
+                  value={product.quantity?product.quantity:1/*cartList.map(elem=>elem.quantity)>1?cartList.map(elem=>elem.quantity):1}
+              onChange={(e)=>e.target.value*/}
+                  className="quantity"/>
+                <button onClick={()=>dispatch(increaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))} className="bt_plus">
+                  <img src={plus} alt="plus" />
+                </button>
+              </div>
             </div>
-           
-             
               ))}
-
-          <div
-            style={{
-              height: "1px",
-              width: "824px",
-              background: "#A7A7A7",
-              marginTop: "40px",
-              marginBottom: "40px",
-            }}
-          ></div>
+              <div className="line"></div>
          
         </div>
         <div className="cart__order">
@@ -106,10 +93,13 @@ console.log(cartList);
               <p>Total</p>
             </div>
             <div>
+              {/* <h4>{`${cartList.map(elem=>elem.quantity)>1?cartList.map((elem)=> elem.quantity*elem.price):cartList.map(elem=>elem.price)}$`}</h4> */}
+              {/* <h4>{cartList.map(elem=>elem.total)}</h4> */}
+              <h4>{array.reduce((acc,curr)=>acc+curr)}</h4>
             </div>
           </div>
           <div>
-            {cartList.map(elem=>elem.total)}
+            
             <input type="tel" placeholder="Phone number" />
           </div>
 
