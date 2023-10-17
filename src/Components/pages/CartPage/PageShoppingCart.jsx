@@ -95,7 +95,7 @@ console.log(cartList);
             <div>
               {/* <h4>{`${cartList.map(elem=>elem.quantity)>1?cartList.map((elem)=> elem.quantity*elem.price):cartList.map(elem=>elem.price)}$`}</h4> */}
               {/* <h4>{cartList.map(elem=>elem.total)}</h4> */}
-              <h4>{array.reduce((acc,curr)=>acc+curr)}</h4>
+              <h4>{array.reduce((acc,curr)=>acc+curr,0)}</h4>
             </div>
           </div>
           <div>
