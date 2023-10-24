@@ -1,0 +1,58 @@
+.filter{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 30px;
+    padding-left: 35px;
+    &__name{
+        color: #000;
+        font-family: Montserrat;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%; /* 26px */
+        letter-spacing: 0.6px;
+    }
+    &__input_price{
+        border-radius: 7px;
+        border: 1px solid #000;
+        width: 103px;
+        height: 42px;
+        flex-shrink: 0;
+        font-family: Montserrat;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%; /* 20.8px */
+        letter-spacing: 0.48px;
+        flex-shrink: 0;
+        padding-left: 10px;
+    }
+   
+    &__input_checkbox{
+        width: 40px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        border: 1px solid #000;
+        
+    }
+    &__sort{
+        width: 219px;
+        height: 40px;
+        flex-shrink: 0;
+        border-radius: 7px;
+        border: 1px solid #000;
+        padding-left: 10px;
+        font-size: 16px;
+        color: #797979;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%; /* 20.8px */
+        letter-spacing: 0.48px;
+
+    }
+  
+}

@@ -23,6 +23,9 @@ console.log(array);
 // console.log(arrayTotal);
 
 console.log(cartList);
+// useEffect(() => {
+//  localStorage.setItem("cart_item", JSON.stringify(cartList))
+// }, [cartList])
 
   return (
     <>
@@ -75,7 +78,8 @@ console.log(cartList);
                   min={1}
                   max={100}
                   value={product.quantity?product.quantity:1/*cartList.map(elem=>elem.quantity)>1?cartList.map(elem=>elem.quantity):1}
-              onChange={(e)=>e.target.value*/}
+                  onChange={(e)=>e.target.value*/}
+                  onChange={(e)=>e.target.value}
                   className="quantity"/>
                 <button onClick={()=>dispatch(increaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))} className="bt_plus">
                   <img src={plus} alt="plus" />

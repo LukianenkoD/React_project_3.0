@@ -3,13 +3,17 @@ import {NavLink} from "react-router-dom";
 import bag from "../pages/Img/shopping_bag.svg";
 import logo from "../pages/Img/logo.svg";
 import "../header/Header.scss";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
+
+  const navigate = useNavigate();
+
   return (
     <header className="container header">
       <div className="header__right_part">
         <div className="header__logo">
-            <img src={logo} alt="logo" />
+            <img className="header__logo_img" onClick={() => navigate("/")} src={logo} alt="logo" />
         </div>
         <NavLink to='/PageAllCategories' className={({isActive})=>isActive?"active":""}>
         <a href="#">

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import '../../Style/slider.scss';
+import { Navigation} from 'swiper/modules';
 
 
 import './page_all_categories.scss';

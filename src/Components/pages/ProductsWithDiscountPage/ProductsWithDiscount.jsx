@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react';
 import axios from "axios";
-import AddToCart from '../../AddToCart';
 import ProductCard from '../../ProductCard/ProductCard';
 import './ProductsWithDiscount.scss';
 

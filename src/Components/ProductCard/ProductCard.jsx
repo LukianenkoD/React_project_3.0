@@ -1,5 +1,6 @@
-import AddToCart from "../AddToCart";
-import "./ProductCard.scss"
+import AddToCart from "../AddToCard/AddToCart";
+import "./ProductCard.scss";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -8,21 +9,23 @@ function ProductCard (props){
 
     const {product} = props;
     const discont = Math.floor(product.discont_price);
-    const price = Math.round(product.price);
+    const price = Math.floor(product.price);
 
+    const navigate = useNavigate();
     return (
-        <div className='imgProduct' key={product.id}>
-            <img className='imgProduct' src={`http://localhost:3333${product.image}`} alt="phot" />
+        <div 
+        className='imgProduct' key={product.id}>
+            <img onClick={() => navigate(`/PageAllCategories/:categorie/${product.id}`)} className='imgProduct' src={`http://localhost:3333${product.image}`} alt="phot"  />
           
           <AddToCart prod={product}/>
           <div className="product__card_price">
                   {product.discont_price?
                   <>
-                    <h4>{discont}$</h4>
-                    <h3>{price}$</h3>
+                    <h4>{Math.floor(product.discont_price)}$</h4>
+                    <h3>{Math.round(product.price)}$</h3>
                     <h2>
                       {Math.floor(
-                        ((price - discont) / price) * 100
+                        ((product.price - product.discont_price) / product.price) * 100
                       )}
                       %
                     </h2>

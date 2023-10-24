@@ -1,0 +1,25 @@
+.btn_add_to_cart {
+    opacity: 0;
+    position: absolute;
+    top: -100px;
+    left: calc(50% - 140px);
+    transition: opacity 0.3s;
+    flex-shrink: 0;
+    border-radius: 21px;
+    border: 2px solid #393;
+    background: #f1fff1;
+    color: #393;
+    font-family: Montserrat;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 23.4px */
+    cursor: pointer;
+  }
+
+.img-responsive {
+    position: relative;
+    width: 279px;
+    height: 72px;
+  }
+

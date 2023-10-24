@@ -1,6 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from "react-redux";
-// import { addToCard } from "../action/cardAction";
+import { useDispatch} from "react-redux";
 import { addNewItemAction } from '../../../reducers/CartListReducer';
 
 function AddToCartProduct({prod}) {
@@ -9,7 +8,7 @@ function AddToCartProduct({prod}) {
   
     function handleAddToCart() {
       dispatch(addNewItemAction(prod));
-    }
+     }
   return (
     <div>
         <button onClick={() => handleAddToCart(prod)} className='new_btn_add_to_cart img-responsive'>

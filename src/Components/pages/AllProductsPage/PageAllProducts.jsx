@@ -1,13 +1,19 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
-import AddToCart from '../../AddToCart'
+import { useSelector } from "react-redux";
 import "./PageAllProducts.scss";
-import Filter from '../../Filter'
+import Filter from '../../Filter/Filter'
 import ProductCard from '../../ProductCard/ProductCard';
 
+
 function PageAllProducts() {
+
+  const product = useSelector((store) => store.product);
+     
+     console.log(product);
     const [products, setProducts] = useState([]);
   
+
     useEffect(() => {
       async function getData() {
         try {
@@ -21,12 +27,19 @@ function PageAllProducts() {
       }
       getData();
     }, []);
+
+useEffect(() => {
+  setProducts(product)
+
+}, [product])
+
   return (
     <>
     <div className='products_div container'>All products</div>
-    {/* <Filter/> */}
+    <Filter setProducts={setProducts} products={products}/>
     <div  className="products__photo_div container">
-        {products.map((product, index) => <ProductCard key={index} product={product}/>)}
+        {
+        products.filter(elem=>elem.isShow!==true).map((product, index) => <ProductCard key={index} product={product}/>)}
       </div>
     </>
     
