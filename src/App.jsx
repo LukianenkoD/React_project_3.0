@@ -10,21 +10,38 @@ import ProductsFromCategories from "./Components/pages/ProductsFromCategories/Pr
 import Product from "./Components/pages/ProductPage/Product";
 import {Provider} from 'react-redux';
 
-
+import { useDispatch } from "react-redux";
 import axios from "axios";
 import Header from './Components/header/Header';
 import Footer from './Components/footer/Footer';
 import Map from './Components/map/Map';
-
+import {getDataToState} from './reducers/ProductReducer'
 import { store } from './store';
 
-
 function App() {
+  const dispatch = useDispatch();
+ 
+  
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await axios.get(
+          "http://localhost:3333/products/all"
+        );
+       dispatch(getDataToState(response.data))
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+    
+  }, []);
+
   
   return (
     <>
    
-    <Provider store={store}>
+  
    
     <Router>
       <Header/>
@@ -33,14 +50,14 @@ function App() {
         <Route path="/PageAllCategories" element={<PageAllCategories/>} />
         <Route path="/PageAllCategories/:categorie" element={<ProductsFromCategories/>}/>
         <Route path="/PageAllCategories/:categorie/:productId" element={<Product/>}/>
-        <Route path="/AllProducts" element={<PageAllProducts/>} />
+        <Route path="/AllProducts" element={<PageAllProducts /*products={products}*//>} />
         <Route path="/PageShoppingCart" element={<PageShoppingCart/>} />
-        <Route path="/ProductsWithDiscount" element={<ProductsWithDiscount/>} />
+        <Route path="/ProductsWithDiscount" element={<ProductsWithDiscount /*products={products}*//>} />
         <Route path="*" element={<NoteFoundPage/>}/>
       </Routes>
       <Footer/>
     </Router>
-    </Provider>
+  
    
     </>
     

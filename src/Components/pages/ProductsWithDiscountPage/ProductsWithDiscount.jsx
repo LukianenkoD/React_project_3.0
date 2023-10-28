@@ -2,32 +2,43 @@ import React,{useState, useEffect} from 'react';
 import axios from "axios";
 import ProductCard from '../../ProductCard/ProductCard';
 import './ProductsWithDiscount.scss';
+import Filter from '../../Filter/Filter';
+import { useSelector } from "react-redux";
 
-function ProductsWithDiscount() {
+function ProductsWithDiscount({products}) {
 
-    const [photos, setPhotos] = useState([]);
-    useEffect(() => {
-      async function getData() {
-        try {
-          const response = await axios.get(
-            'http://localhost:3333/products/all'
-          );
-          setPhotos(response.data);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-      getData();
-    }, []);
+  const product = useSelector((store) => store.product.newProduct);
+console.log(product);
+    // const [photos, setPhotos] = useState([]);
+    // useEffect(() => {
+    //   async function getData() {
+    //     try {
+    //       const response = await axios.get(
+    //         'http://localhost:3333/products/all'
+    //       );
+    //       setPhotos(response.data);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+    //   getData();
+    // }, []);
+    // console.log(photos);
+
+    // useEffect(() => {
+    //   setPhotos(product)
+    
+    // }, [product])
 
   return (
     <>
     <div className='discont container'>Products with sale</div>
+   <Filter /*setProducts={setPhotos}*/ products={product} isDiscountPage={true} /*firstProducts={products}*//>
     <div /*className="section3__sale container"*/ className="products__photo_div container">
           {
-            photos.filter((product)=> product.discont_price).map((product)=>(
-              <ProductCard key={product.id} product={product}/>
-          ))
+            
+           product.filter((product)=> product.discont_price).filter(elem=>elem.isShow===true)
+           .map((product)=> <ProductCard key={product.id} product={product} />)
           
           
           

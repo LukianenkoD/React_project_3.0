@@ -11,7 +11,7 @@ function AddToCartProduct({prod}) {
      }
   return (
     <div>
-        <button onClick={() => handleAddToCart(prod)} className='new_btn_add_to_cart img-responsive'>
+        <button onClick={() => handleAddToCart(prod)} className='new_btn_add_to_cart img_responsive'>
             To cart
         </button>
     </div>

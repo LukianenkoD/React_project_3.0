@@ -5,6 +5,12 @@
     gap: 20px;
     padding-bottom: 30px;
     padding-left: 35px;
+    @media (max-width: 900px) {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        
+        }
     &__name{
         color: #000;
         font-family: Montserrat;
@@ -55,4 +61,14 @@
 
     }
   
+}
+.sorted{
+    display: flex;
+    align-content: center;
+    align-items: center;
+    gap: 10px;
+    @media (max-width: 900px) {
+        flex-direction: column;
+        }
+
 }

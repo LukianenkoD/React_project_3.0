@@ -1,4 +1,6 @@
-.btn_add_to_cart {
+.btn{
+  height:0;
+  &__add {
     opacity: 0;
     position: absolute;
     top: -100px;
@@ -15,11 +17,21 @@
     font-weight: 600;
     line-height: 130%; /* 23.4px */
     cursor: pointer;
-  }
-
-.img-responsive {
     position: relative;
     width: 279px;
     height: 72px;
+    @media (max-width: 880px) {
+      width: 200px;
+      left: calc(50% - 110px);;
+    }
+  }
+}
+
+
+.img_responsive {
+    position: relative;
+    width: 279px;
+    height: 72px;
+   
   }
 

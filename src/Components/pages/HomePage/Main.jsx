@@ -7,10 +7,37 @@ import Sale from '../../sale/Sale';
 import '../../Style/style.scss'
 import PageAllCategories from '../AllCategoriesPage/PageAllCategories';
 import AllCategories from '../AllCategoriesPage/AllCategories';
-
+import './Main.scss'
+import axios from 'axios';
+import {useForm} from 'react-hook-form'
 
 
 function Main() {
+  const{
+    handleSubmit,
+    formState:{errors},
+    reset,
+  } = useForm({mode:"onTouched"});
+
+  const handleDiscont=()=>{
+  async function getDiscount(){
+    try{
+      const response = await axios.post("http://localhost:3333/sale/send");
+      return localStorage.setItem("answer", response.data.status);
+
+    }catch(err){
+      return err.message;
+    }
+  }
+  getDiscount();
+};
+
+const submitForm = (data)=>{
+  console.log(data);
+  localStorage.setItem("discont", data.telephon);
+  reset();
+};
+console.log(errors);
   return (
     <>
     <main className="container main">
@@ -47,9 +74,7 @@ function Main() {
         <button>All categories</button>
         </NavLink>
         </div>
-        {/* <Categories/> */}
         <AllCategories/>
-        {/* <PageAllCategories/> */}
         
       
        </div>
@@ -57,13 +82,25 @@ function Main() {
       <section className='discount container'>
         <div className='discount__main'>
         <div>
-        <img src={Gnome} alt="gnome" style={{marginLeft:'91px', marginTop:'27px'}}/>
+        <img className='discount__img' src={Gnome} alt="gnome"/>
         </div>
-        <div>
+        <div className='discount__main_order'>
           <h1>5% off</h1>
           <h2>on the first order</h2>
-          <input type="tel" placeholder='+49' />
-          <button>Get a discount</button>
+          <form onSubmit={handleSubmit(submitForm)}>
+          <div className='discount__main_button'>
+          <input type="number" placeholder='+49' /*{...register('telephon',{required:"input required", 
+          maxLength:{value:15, message:"To long. Max is 15 symbols"},})}*//>
+          <button onClick={()=>handleDiscont()}>Get a discount</button>
+          
+          </div>
+          </form>
+          <div>
+           
+            {localStorage.getItem('answer')===true?<p>You bekome discont 5%</p>:<p>Try again</p>}
+             {/* {setTimeout(()=> {localStorage.removeItem('answer')},2000)} */}
+            
+          </div>
         </div>
         </div>
       </section>

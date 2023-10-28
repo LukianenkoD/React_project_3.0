@@ -49,26 +49,18 @@ console.log(cartList);
                 className={"close"} >
                 X
               </span>
+              <div className="cart__title">
+              <div>
               <img className="cart__div_img"
                 src={`http://localhost:3333${product.image}`}
                 alt="product"
               />
-              <h2>{product.title}</h2>
-              <div>
-                
-                {product.discont_price?
-                <>
-                 <h4>{Math.floor(product.discont_price)}$</h4>
-                <h3>{Math.round(product.price)}$</h3>
-                </>
-               :
-                <h3>{Math.round(product.price)}$</h3>
-                }
               </div>
-                
               
-              
-        
+              <div className="cart__title_centr">
+              <div className="cart__title_div">
+              <h2 className="cart__title_h2">{product.title}</h2>
+              </div>
               <div className="cart quantity_inner">
                 <button onClick={()=>dispatch(decreaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))}  className="bt_minus">
                   <img src={minus} alt="minus" />
@@ -85,6 +77,51 @@ console.log(cartList);
                   <img src={plus} alt="plus" />
                 </button>
               </div>
+              </div>
+              <div className="action_prices" style={{}}>
+                
+                {product.discont_price?
+                <>
+                <div className="action">
+                <div className="action__price">
+                  <div  className="action__price_div" >
+                  <h4 className="action__price_h4">{Math.floor(product.discont_price)}$</h4>
+                  </div>
+                  
+               
+                
+                 <div className="price">
+                  <div>
+                  <h3 className="price__dolar">{Math.round(product.price)}</h3>
+                  </div>
+                 <div>
+                 <p className="price__p">$</p>
+                 </div>
+                 
+                 </div>
+                 </div>
+                 </div>
+                
+                </>
+               :
+               <>
+               <div className="price">
+                <div>
+                <h3 className="price__dolar">{Math.round(product.price)}</h3>
+                </div>
+               <div>
+               <p className="price__p">$</p>
+               </div>
+                
+                </div>
+               </>
+                
+                }
+              </div>
+              </div>
+             
+        
+             
             </div>
               ))}
               <div className="line"></div>

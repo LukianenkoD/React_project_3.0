@@ -1,45 +1,48 @@
 import React, {useState, useEffect} from 'react'
 import axios from "axios";
-import { useSelector } from "react-redux";
+import { useSelector,  useDispatch } from "react-redux";
 import "./PageAllProducts.scss";
 import Filter from '../../Filter/Filter'
 import ProductCard from '../../ProductCard/ProductCard';
+import {getDataToState} from '../../../reducers/ProductReducer'
 
 
-function PageAllProducts() {
+function PageAllProducts({products}) {
 
-  const product = useSelector((store) => store.product);
+  const newProduct = useSelector((store) => store.product.newProduct);
+  // const product = useSelector((store) => store.product.product);
+     console.log(newProduct);
      
-     console.log(product);
-    const [products, setProducts] = useState([]);
-  
+    // const [products, setProducts] = useState([]);
+    // const dispatch = useDispatch();
+   
 
-    useEffect(() => {
-      async function getData() {
-        try {
-          const response = await axios.get(
-            "http://localhost:3333/products/all"
-          );
-          setProducts(response.data);
-        } catch (err) {
-          console.log(err);
-        }
-      }
-      getData();
-    }, []);
+    // useEffect(() => {
+    //   async function getData() {
+    //     try {
+    //       const response = await axios.get(
+    //         "http://localhost:3333/products/all"
+    //       );
+    //       setProducts(response.data);
+    //     } catch (err) {
+    //       console.log(err);
+    //     }
+    //   }
+    //   getData();
+    // }, []);
 
-useEffect(() => {
-  setProducts(product)
+// useEffect(() => {
+//   dispatch(getDataToState(products))
+// }, [products])
 
-}, [product])
 
   return (
     <>
     <div className='products_div container'>All products</div>
-    <Filter setProducts={setProducts} products={products}/>
+    <Filter /*firstProducts={products}*//>
     <div  className="products__photo_div container">
         {
-        products.filter(elem=>elem.isShow!==true).map((product, index) => <ProductCard key={index} product={product}/>)}
+        newProduct.filter(elem=>elem.isShow).map((product, index) => <ProductCard key={index} product={product}/>)}
       </div>
     </>
     

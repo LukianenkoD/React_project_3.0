@@ -3,9 +3,7 @@
 
 .footer {
     flex-direction: column;
-    // @media (max-width: 1420px) {
-    //   gap: 100px;
-    // }
+    padding-left: 10px;
     @media (max-width: 1310px) {
       gap: 50px;
     }

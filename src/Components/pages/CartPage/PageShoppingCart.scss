@@ -57,20 +57,34 @@
     width: 824px;
     @media (max-width: 900px) {
       width: 600px;
-      h2{
-
-      }
-      h4{
-
-      }
-      h3{
-        
-      }
     }
     &_img{
       width: 192px;
       height: 166px;
       border-radius: 10px;
+    }
+  }
+  &__title{
+    display: flex;
+    gap:40px;
+    &_centr{
+      display: flex;
+      gap: 71px;
+      flex-direction: column;
+      margin-left: 5px;
+    }
+    &_h2{
+      max-width: 318px;
+      color: rgba(58, 58, 58, 1);
+      font-family: Montserrat;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 130%; /* 23.4px */
+      letter-spacing: 0.54px;
+    }
+    &_div{
+      
     }
   }
 
@@ -165,6 +179,60 @@
     }
   }
 }
+.price{
+  display: flex;
+  align-items: baseline;
+  
+  &__dolar{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%; /* 52px */
+    letter-spacing: 1.2px;
+  }
+  &__p{
+    color: #000;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    letter-spacing: 0.6px;
+  }
+
+}
+.action_prices{
+  display:flex;
+  align-items:center;
+}
+.action{
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 71px;
+  align-items: center;
+  &__price{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 80px;
+    padding-left: 5px;
+   
+    &_h4{
+      color: #8B8B8B;
+      font-family: Montserrat;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 130%; /* 26px */
+      letter-spacing: 0.6px;
+      text-decoration: line-through;
+    }
+
+  }
+}
+
 .close {
   float: right;
   font-size: 30px;
@@ -180,6 +248,7 @@
   display: inline-flex;
   border-radius: 15px;
   border: 2px solid black;
+  max-width: 140px;
 }
 .quantity_inner .bt_minus,
 .quantity_inner .bt_plus,

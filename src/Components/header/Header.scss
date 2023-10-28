@@ -8,9 +8,6 @@
       cursor: default;
       font-weight: 600;
     }
-    // margin-top: 20px;
-    // margin-left: 20px;
-    // margin-right: 20px;
     @media (max-width: 1420px) {
       gap: 420px;
     }
@@ -52,8 +49,6 @@
     &__menu {
       @include flex(space-around, center,);
       gap: 55px;
-     
-      // min-height: 72px;
       @media (max-width: 1140px) {
         flex-wrap: wrap;
       }
@@ -65,7 +60,6 @@
         font-weight: 500;
         cursor: pointer;
         height: 100%;
-        // margin-top: 30px;
         img{
           margin-left:100px;
           margin-right:20px;

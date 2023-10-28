@@ -11,8 +11,8 @@ function AddToCart({prod}) {
       dispatch(addNewItemAction(prod));
      }
   return (
-    <div style={{height:'0'}}>
-        <button onClick={() => handleAddToCart(prod)} className='new-img-responsive btn_add_to_cart img-responsive'>
+    <div className='btn'>
+        <button onClick={() => handleAddToCart(prod)} className='new-img-responsive btn__add'>
             Add to cart
         </button>
     </div>
