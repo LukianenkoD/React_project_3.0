@@ -5,6 +5,7 @@ import minus from "../Img/minus.svg";
 import right from '../Img/right.svg';
 import { useNavigate } from "react-router-dom";
 import { decreaseItemByIdAction, increaseItemByIdAction, remItemByIdAction } from "../../../reducers/CartListReducer";
+import SendOrder from "../../SendOrder/SendOrder";
 
 function PageShoppingCart() {
   const cartList = useSelector((store) => store.cartList);
@@ -130,11 +131,11 @@ console.log(cartList);
             </div>
           </div>
           <div>
-            
-            <input type="tel" placeholder="Phone number" />
+            <SendOrder/>
+            {/* <input type="tel" placeholder="Phone number" /> */}
           </div>
 
-          <button>Order</button>
+          {/* <button>Order</button> */}
         </div>
       </div>
     </>

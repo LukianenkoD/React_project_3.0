@@ -7,6 +7,8 @@
     background: linear-gradient(263deg, #393 -0.43%, #006300 104.36%);
     width: 100%;
     &__main {
+      // margin-top: 50px;
+      text-align: center;
       @include flex(none, center, 200px);
       @media (max-width: 1300px) {
         flex-wrap: wrap;
@@ -18,11 +20,13 @@
             gap: 5px;
             flex-direction: column;
             padding-bottom: 45px;
+           
         }
         }
     &__img{
-        margin-left:150px;
+        // margin-left:150px;
         margin-top:27px;
+        width: 100%;
         }
    
       h1 {
@@ -33,6 +37,9 @@
         font-weight: 700;
         line-height: 120%; /* 108px */
         letter-spacing: 2.7px;
+        // @media (max-width: 600px) {
+        //   font-size: 50px;
+        //   }
       }
       h2 {
         color: #fff;
@@ -42,9 +49,12 @@
         font-weight: 700;
         line-height: 120%;
         letter-spacing: 1.5px;
+        @media (max-width: 600px) {
+          font-size: 30px;
+          }
       }
       input {
-        width: 473px;
+        max-width: 473px;
         height: 75.441px;
         flex-shrink: 0;
         border-radius: 25.147px;
@@ -60,9 +70,12 @@
         margin-top: 46px;
         margin-bottom: 30px;
         padding-left: 50px;
+        @media (max-width: 500px) {
+          max-width: 350px;
+        }
       }
       button {
-        width: 473px;
+        max-width: 473px;
         height: 75.441px;
         flex-shrink: 0;
         border-radius: 25.147px;
@@ -76,6 +89,13 @@
         line-height: 120%; /* 34.487px */
         letter-spacing: 0.862px;
         cursor: pointer;
+        @media (max-width: 500px) {
+          max-width: 350px;
+        }
       }
+    }
+    .flower{
+      width:100%;
+      margin-top:-50px;
     }
   

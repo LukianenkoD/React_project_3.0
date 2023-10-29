@@ -37,7 +37,7 @@ function Main() {
             
         </div>
         <div /*style={{width:"50%"}}*/>
-        <img style={{width:"100%", marginTop:"-50px"}} src={flowers} alt="flowers" />
+        <img className='flower' style={{}} src={flowers} alt="flowers" />
 
         </div>
       </section>

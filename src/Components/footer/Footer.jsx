@@ -14,8 +14,13 @@ function Footer() {
     <footer className='container footer'>
         <div className='footer__div'>
         <div className='footer__div_left'>
+            
             <h2>Contact</h2>
-            <h1 style={{marginRight:'162px'}}>+49 999 999 99 99</h1>
+            
+          
+            <h1>+49 999 999 99 99</h1>
+        
+           
             <div className='footer__div_social' >
                 <div>
                     <a href="#">

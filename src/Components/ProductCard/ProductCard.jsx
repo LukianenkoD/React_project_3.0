@@ -14,7 +14,7 @@ function ProductCard (props){
     const navigate = useNavigate();
     return (
         <div 
-        className='imgProduct' key={product.id}>
+        className='imgProductDiv imgProduct' key={product.id}>
             <img onClick={() => navigate(`/PageAllCategories/:categorie/${product.id}`)} className='imgProduct' src={`http://localhost:3333${product.image}`} alt="phot"  />
           
           <AddToCart prod={product}/>

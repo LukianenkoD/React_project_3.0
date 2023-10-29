@@ -8,6 +8,8 @@
   align-items: center;
   gap: 35px;
   &__title {
+    max-height: 710px;
+    max-width: 710px;
     margin-bottom: 30px;
     font-family: Montserrat;
     font-size: 36px;
@@ -48,6 +50,9 @@
     @include flex(flex-start, center, 90px);
     margin-top: 140px;
     margin-bottom: 40px;
+    @media (max-width: 600px) {
+      gap: 40px;
+    }
     h3{
       color: grey;
     }
@@ -89,8 +94,8 @@
     }
   }
   img {
-    max-height: 710px;
-    max-width: 710px;
+    max-height: 100%;
+    max-width: 100%;
     object-fit: cover;
   }
 }

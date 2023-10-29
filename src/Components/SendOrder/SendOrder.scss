@@ -1,0 +1,65 @@
+.button_order{
+    display: flex;
+    flex-direction: column;
+
+    input {
+        min-width: 446px;
+        height: 73px;
+        flex-shrink: 0;
+        border-radius: 20px;
+        border: 1px solid #000;
+        background: #fff;
+        color: #929292;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 130%; /* 23.4px */
+        letter-spacing: 0.54px;
+        padding-left: 25px;
+        @media (max-width: 600px) {
+          min-width: 320px;
+        }
+      }
+      button{
+        @media (max-width: 600px) {
+          min-width: 320px;
+          font-size: 18px;
+          padding: 20px 110px 20px 143px;
+        }
+        border-radius: 17px;
+        background: #393;
+        min-width: 446px;
+        padding: 20px 185px 20px 143px;
+        align-items: flex-start;
+        gap: 10px;
+        color: #fff;
+        text-align: center;
+        font-family: Montserrat;
+        font-size: 28px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 130%; /* 36.4px */
+        letter-spacing: 0.84px;
+        border-color: transparent;
+        margin-top: 25px;
+        cursor: pointer;
+    }   
+}
+.message{
+    &__p{ border-radius: 21px;
+        border: 2px solid #393;
+        background: #f1fff1;
+        color: #393;
+        font-family: Montserrat;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 130%;
+        max-height: 85px;
+        padding: 13px;
+        text-align: center;
+        margin-top: 20px;
+
+    }
+}

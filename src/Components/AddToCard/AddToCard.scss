@@ -18,12 +18,23 @@
     line-height: 130%; /* 23.4px */
     cursor: pointer;
     position: relative;
+    padding: 10px;
     width: 279px;
     height: 72px;
-    @media (max-width: 880px) {
-      width: 200px;
-      left: calc(50% - 110px);;
+    // @media (max-width: 880px) {
+    //   width: 200px;
+    //   left: calc(50% - 110px);;
+    // }
+    @media (max-width: 750px) {
+      width: 150px;
+      left: calc(60% - 93px);
     }
+    // @media (max-width: 750px) {
+    //   height: 30px;
+    //   width: 80px;
+    //   left: calc(60% - 60px);
+    //   font-size: 9px;
+    // }
   }
 }
 

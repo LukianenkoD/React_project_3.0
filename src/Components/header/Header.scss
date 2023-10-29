@@ -48,7 +48,7 @@
     }
     &__menu {
       @include flex(space-around, center,);
-      gap: 55px;
+      gap: 38px;
       @media (max-width: 1140px) {
         flex-wrap: wrap;
       }

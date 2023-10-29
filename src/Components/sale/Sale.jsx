@@ -24,6 +24,7 @@ function Sale() {
   
     return (
       <>
+      
       <Swiper watchSlidesProgress={true} slidesPerView={3}  className="mySwiper">
         <div className="section3__sale container">
           {photos.map((product) => {
