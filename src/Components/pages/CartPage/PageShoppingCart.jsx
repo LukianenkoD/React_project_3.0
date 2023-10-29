@@ -1,31 +1,21 @@
-import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./PageShoppingCart.scss";
 import plus from "../Img/plus.svg";
 import minus from "../Img/minus.svg";
 import right from '../Img/right.svg';
 import { useNavigate } from "react-router-dom";
-import { addToCard } from "../../../action/cardAction";
-import { changeState, decreaseItemByIdAction, increaseItemByIdAction, remItemByIdAction } from "../../../reducers/CartListReducer";
-// import { ChangeCard } from "../../../action/cardAction";
+import { decreaseItemByIdAction, increaseItemByIdAction, remItemByIdAction } from "../../../reducers/CartListReducer";
+
 function PageShoppingCart() {
-  
-
   const cartList = useSelector((store) => store.cartList);
-  // const products = useSelector((store) => store.product.products);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
-const array = cartList.map((elem)=> (elem.quantity?elem.quantity:1)*
-(Math.floor(elem.discont_price)?Math.floor(elem.discont_price):Math.round(elem.price))); 
-console.log(array);
-// const arrayTotal = array.reduce((acc,curr)=>acc+curr);
-// console.log(arrayTotal);
+  const array = cartList.map((elem)=> (elem.quantity?elem.quantity:1)*
+  (Math.floor(elem.discont_price)
+  ?Math.floor(elem.discont_price):Math.floor(elem.price))); 
+
 
 console.log(cartList);
-// useEffect(() => {
-//  localStorage.setItem("cart_item", JSON.stringify(cartList))
-// }, [cartList])
 
   return (
     <>
@@ -83,20 +73,20 @@ console.log(cartList);
                 {product.discont_price?
                 <>
                 <div className="action">
-                <div className="action__price">
-                  <div  className="action__price_div" >
-                  <h4 className="action__price_h4">{Math.floor(product.discont_price)}$</h4>
-                  </div>
-                  
-               
-                
-                 <div className="price">
-                  <div>
-                  <h3 className="price__dolar">{Math.round(product.price)}</h3>
-                  </div>
-                 <div>
-                 <p className="price__p">$</p>
-                 </div>
+                  <div className="action__price">
+                    <div  className="action__price_div" >
+                      <div>
+                      <h4 className="price__dolar">{Math.floor(product.discont_price)}</h4>
+                      </div>
+                    <div>
+                       <p className="price__p">$</p>
+                      </div>
+                      </div>
+                    <div className="price">
+                      <div>
+                        <h3 className="action__price_h4">{Math.round(product.price)}$</h3>
+                      </div>
+                     
                  
                  </div>
                  </div>
@@ -107,7 +97,7 @@ console.log(cartList);
                <>
                <div className="price">
                 <div>
-                <h3 className="price__dolar">{Math.round(product.price)}</h3>
+                <h3 className="price__dolar">{Math.floor(product.price)}</h3>
                 </div>
                <div>
                <p className="price__p">$</p>

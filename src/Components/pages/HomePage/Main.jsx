@@ -7,37 +7,13 @@ import Sale from '../../sale/Sale';
 import '../../Style/style.scss'
 import PageAllCategories from '../AllCategoriesPage/PageAllCategories';
 import AllCategories from '../AllCategoriesPage/AllCategories';
-import './Main.scss'
-import axios from 'axios';
-import {useForm} from 'react-hook-form'
+import './Main.scss';
+import GetDiscount from '../../GetDiscount/GetDiscount';
 
 
 function Main() {
-  const{
-    handleSubmit,
-    formState:{errors},
-    reset,
-  } = useForm({mode:"onTouched"});
 
-  const handleDiscont=()=>{
-  async function getDiscount(){
-    try{
-      const response = await axios.post("http://localhost:3333/sale/send");
-      return localStorage.setItem("answer", response.data.status);
-
-    }catch(err){
-      return err.message;
-    }
-  }
-  getDiscount();
-};
-
-const submitForm = (data)=>{
-  console.log(data);
-  localStorage.setItem("discont", data.telephon);
-  reset();
-};
-console.log(errors);
+  
   return (
     <>
     <main className="container main">
@@ -87,18 +63,8 @@ console.log(errors);
         <div className='discount__main_order'>
           <h1>5% off</h1>
           <h2>on the first order</h2>
-          <form onSubmit={handleSubmit(submitForm)}>
-          <div className='discount__main_button'>
-          <input type="number" placeholder='+49' /*{...register('telephon',{required:"input required", 
-          maxLength:{value:15, message:"To long. Max is 15 symbols"},})}*//>
-          <button onClick={()=>handleDiscont()}>Get a discount</button>
-          
-          </div>
-          </form>
+          <GetDiscount/>
           <div>
-           
-            {localStorage.getItem('answer')===true?<p>You bekome discont 5%</p>:<p>Try again</p>}
-             {/* {setTimeout(()=> {localStorage.removeItem('answer')},2000)} */}
             
           </div>
         </div>

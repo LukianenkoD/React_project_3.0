@@ -72,6 +72,7 @@
       gap: 71px;
       flex-direction: column;
       margin-left: 5px;
+      min-width: 300px;
     }
     &_h2{
       max-width: 318px;
@@ -215,9 +216,12 @@
   &__price{
     display: flex;
     align-items: center;
-    flex-direction: row-reverse;
     gap: 80px;
     padding-left: 5px;
+    &_div{
+      display: flex;
+      align-items: baseline;
+    }
    
     &_h4{
       color: #8B8B8B;

@@ -14,29 +14,23 @@ const allProduct = useSelector((store) => store.product.newProduct);
 
 const {categorie} = useParams();
 const [categor, setCategor] = useState([]);
-  
-// const[newCategorData, SetNewCategorData] = useState([]);
-//     useEffect(()=>{
-//       SetNewCategorData(categor.data)
-//     },[categor.data])
-  
    
 let categorProduct = allProduct.filter((element)=>element.categoryId===+categorie);
 
-    // useEffect(() => {
-    // async function getData() {
-    //   try {
-    //     const response = await axios.get(
-    //       `http://localhost:3333/categories/${categorie}`
+    useEffect(() => {
+    async function getData() {
+      try {
+        const response = await axios.get(
+          `http://localhost:3333/categories/${categorie}`
     
-    //     );
-    //     setCategor(response.data);
-    //   } catch (err) {
-    //     console.log(err);
-    //   }
-    // }
-    // getData();
-    // },[categorie]);
+        );
+        setCategor(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+    },[categorie]);
 
     
   return (

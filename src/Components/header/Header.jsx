@@ -4,8 +4,15 @@ import bag from "../pages/Img/shopping_bag.svg";
 import logo from "../pages/Img/logo.svg";
 import "../header/Header.scss";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 function Header() {
+
+  const cartList = useSelector((store) => store.cartList);
+  let sumCart = cartList.reduce((acc,curr)=>{
+   return acc+curr.quantity
+  },0);
+  console.log(sumCart);
 
   const navigate = useNavigate();
 
@@ -37,8 +44,12 @@ function Header() {
             All sales
         </NavLink>
         <NavLink to="/PageShoppingCart" className={({isActive})=>isActive?"active":""}>
-      
+         <div className="caunter">
           <img src={bag} alt="shopping_cart" />
+           <div className={sumCart?"caunter__point":"caunter__transparent"}>{sumCart?sumCart:''}</div>
+         </div>
+         
+
         </NavLink>
       </div>
     </header>
