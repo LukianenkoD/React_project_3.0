@@ -6,7 +6,6 @@ import './ProductsFromCategories.scss';
 import ProductCard from '../../ProductCard/ProductCard';
 import Filter from '../../Filter/Filter';
 
-
 function ProductsFromCategories() {
 
 const allProduct = useSelector((store) => store.product.newProduct);

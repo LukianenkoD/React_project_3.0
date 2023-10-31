@@ -1,16 +1,11 @@
-import axios from "axios";
 import { useSelector } from "react-redux";
 import "./PageAllProducts.scss";
 import Filter from '../../Filter/Filter'
 import ProductCard from '../../ProductCard/ProductCard';
 
-
-function PageAllProducts({products}) {
+function PageAllProducts() {
 
   const newProduct = useSelector((store) => store.product.newProduct);
-     console.log(newProduct);
-     
-
 
   return (
     <>
@@ -20,9 +15,7 @@ function PageAllProducts({products}) {
         {
         newProduct.filter(elem=>elem.isShow).map((product, index) => <ProductCard key={index} product={product}/>)}
       </div>
-    </>
-    
+    </>    
   )
 }
-
 export default PageAllProducts

@@ -12,8 +12,6 @@ function Header() {
   let sumCart = cartList.reduce((acc,curr)=>{
    return acc+curr.quantity
   },0);
-  console.log(sumCart);
-
   const navigate = useNavigate();
 
   return (
@@ -22,17 +20,14 @@ function Header() {
         <div className="header__logo">
             <img className="header__logo_img" onClick={() => navigate("/")} src={logo} alt="logo" />
         </div>
-        <NavLink to='/PageAllCategories' className={({isActive})=>isActive?"active":""}>
-        
+        <NavLink to='/PageAllCategories' className={({isActive})=>isActive?"active":""}> 
           <div className="header__btn_catalog">
             <p>
               Catalog
             </p>
           </div>
-       
         </NavLink>
       </div>
-
       <div className="header__menu">
         <NavLink to="/" className={({isActive})=>isActive?"active":""}>
             Main Page
@@ -48,12 +43,9 @@ function Header() {
           <img src={bag} alt="shopping_cart" />
            <div className={sumCart?"caunter__point":"caunter__transparent"}>{sumCart?sumCart:''}</div>
          </div>
-         
-
         </NavLink>
       </div>
     </header>
   );
 }
-
 export default Header;

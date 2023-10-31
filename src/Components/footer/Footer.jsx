@@ -5,37 +5,26 @@ import './Footer.scss';
 import '../Style/style.scss';
 import Map from '../map/Map'
 
-
-
-
-
 function Footer() {
   return (
     <footer className='container footer'>
         <div className='footer__div'>
-        <div className='footer__div_left'>
-            
+        <div className='footer__div_left'> 
             <h2>Contact</h2>
-            
-          
             <h1>+49 999 999 99 99</h1>
-        
-           
             <div className='footer__div_social' >
                 <div>
-                    <a href="#">
+                    <a href="https://www.instagram.com/">
                     <img src={instagram} alt="instagram" />
                     <p>instagram</p>
                     </a>
                 </div>
                 <div>
-                    <a href="#">
+                    <a href="https://www.whatsapp.com/">
                     <img src={whatsApp} alt="whatsApp" />
                     <p>WhatsApp</p>
                     </a>
-
                 </div>
-                
             </div>
         </div>
         <div className='footer__div_right'>
@@ -44,10 +33,8 @@ function Footer() {
             <a href="https://www.google.com/search?q=telranDE">Berlin, Deutschland</a>
             <p>Working Hours:</p>
             <h4>24 hours a day</h4>
-
         </div>
         </div>
-
        <Map />
     </footer>
   )

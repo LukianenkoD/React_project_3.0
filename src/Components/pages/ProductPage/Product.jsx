@@ -1,24 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import AddToCartProduct from "./AddToCartProduct";
 import "../ProductPage/Product.scss";
 
 function Product() {
   const { productId } = useParams();
-  const [products, setProducts] = useState([]);
 
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const response = await axios.get(`http://localhost:3333/products/all/`);
-        setProducts(response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getProducts();
-  }, []);
+  const products = useSelector((store) => store.product.newProduct);
 
   return (
     <>
@@ -27,7 +15,6 @@ function Product() {
           .filter((product) => product.id === +productId)
           .map((prod) => (
             <div className="product" key={prod.id}>
-        
               <div  className="product__div">
                 <div className="product__div_left">
                   <div className="product__title">{prod.title}</div>

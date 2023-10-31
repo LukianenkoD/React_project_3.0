@@ -1,12 +1,11 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from "axios";
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import '../../Style/slider.scss';
 import './page_all_categories.scss';
 
-function AllCategories() {
+function AllCategories({categories}) {
 
   const swiperRef = useRef();
   const sliderSettings = {
@@ -27,21 +26,6 @@ function AllCategories() {
       spaceBetween: 5,
     },
   };
- 
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    async function getData() {
-      try {
-        const response = await axios.get(
-          "http://localhost:3333/categories/all"
-        );
-        setCategories(response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    }
-    getData();
-  }, []);
 
   return (
     <>
@@ -67,9 +51,4 @@ function AllCategories() {
     </>
      );
     }
-    
-  
-   
- 
-
 export default AllCategories;

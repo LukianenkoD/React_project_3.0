@@ -1,8 +1,6 @@
 import {useForm} from 'react-hook-form';
 import axios from 'axios';
-// import './GetDiscount.scss';
 import './SendOrder.scss';
-
 
 function SendOrder() {
     const{
@@ -13,37 +11,27 @@ function SendOrder() {
       } = useForm({mode:"onTouched"});
 
       const handleDiscont=()=>{
-      
         async function getDiscount(){
-           
           try{
-            const response = await axios.post("http://localhost:3333/order/send");
-            
+            const response = await axios.post("http://localhost:3333/order/send");            
              return  localStorage.setItem("answerOrder", response.data.status)
           }catch(err){
             return err.message;
           }
-         
         }
-      
         getDiscount();
       };
-     
-     
-
      
       const submitForm = (data)=>{
         console.log(data);
         localStorage.setItem("order", data.telephon);
         reset();
       };
-      console.log(errors);
 
       setTimeout(()=>{
         localStorage.removeItem('order')
     },1000)
 
-    console.log(errors?.telephon?.message);
   return (
     <form onSubmit={handleSubmit(submitForm)}>
     <div className='button_order'>
@@ -59,7 +47,7 @@ function SendOrder() {
     ?<div className='message'><p className='message__p'>Congratulations!<br/> Your order has been sent.</p></div>
     :(errors?.telephon?.message
     ?<p className='message__p'>{errors?.telephon?.message}</p>
-    :<p></p>)/*<p>Add item to cart</p>*/}
+    :<p></p>)}
     
 
     </form>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Main from "./Components/pages/HomePage/Main";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import PageAllCategories from "./Components/pages/AllCategoriesPage/PageAllCategories";
@@ -15,9 +15,9 @@ import Footer from './Components/footer/Footer';
 import {getDataToState} from './reducers/ProductReducer';
 
 function App() {
+
+  const [categories, setCategories] = useState([]);
   const dispatch = useDispatch();
- 
-  
   useEffect(() => {
     async function getData() {
       try {
@@ -29,21 +29,32 @@ function App() {
         console.log(err);
       }
     }
+    getData();   
+  }, []);
+
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await axios.get(
+          "http://localhost:3333/categories/all"
+        );
+        setCategories(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
     getData();
-    
   }, []);
 
   
   return (
     <>
-   
-  
-   
     <Router>
       <Header/>
       <Routes>
-        <Route path="/" element={<Main/>} />
-        <Route path="/PageAllCategories" element={<PageAllCategories/>} />
+        <Route path="/" element={<Main categories={categories}/>} />
+        <Route path="/PageAllCategories" element={<PageAllCategories categories={categories}/>} />
         <Route path="/PageAllCategories/:categorie" element={<ProductsFromCategories/>}/>
         <Route path="/PageAllCategories/:categorie/:productId" element={<Product/>}/>
         <Route path="/AllProducts" element={<PageAllProducts/>} />
@@ -53,10 +64,7 @@ function App() {
       </Routes>
       <Footer/>
     </Router>
-  
-   
     </>
-    
   );
 }
 

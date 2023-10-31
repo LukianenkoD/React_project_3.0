@@ -15,51 +15,37 @@ function Filter({ isDiscountPage}) {
     const [priceForm, setPriceForm] = useState('');
     const [priceTo, setPriceTo] = useState('');
     const [showDiscount, setShowDiscont] = useState(false);
-  
+      
+    const defaultState = useSelector((store) => store.product.product);
     
-const defaultState = useSelector((store) => store.product.product);
+    const dispatch = useDispatch();
     
-
-     const dispatch = useDispatch();
-    
-
-     useEffect(()=>{
-        
+    useEffect(()=>{
         const sort = () =>{
-           
             dispatch(showDiscountAction(showDiscount))
-
-          
             dispatch(sortItemByIdAction({sortType, defaultState}))
                 
             if(priceForm){
-             const payloadFrom={
+              const payloadFrom={
               isShow:false,
               numberFrom:Number(priceForm),}
-             dispatch(sortPriceFromAction(payloadFrom))}
+              dispatch(sortPriceFromAction(payloadFrom))}
 
             if(priceTo){
-             const payloadTo={
+              const payloadTo={
               isShow:true,
               numberTo:Number(priceTo),}
-             dispatch(sortPriceToAction(payloadTo))}
+              dispatch(sortPriceToAction(payloadTo))}
 
             if(priceTo && priceForm){
-             const payloadFromTo={
+              const payloadFromTo={
               isShow:true,
               numberTo:Number(priceTo),
               numberFrom:Number(priceForm)}
-             dispatch(getDataFromToAction(payloadFromTo))}
-
-
-     }
+              dispatch(getDataFromToAction(payloadFromTo))}}
         sort();
-
     }, [sortType, priceForm, priceTo, showDiscount])
 
-
-
-  
   return (
     <div className='container filter'>
         <div>
@@ -72,16 +58,15 @@ const defaultState = useSelector((store) => store.product.product);
             <input min={1} value={priceTo} onChange={(e)=>setPriceTo(e.target.value)} className='filter__input_price' type="number" placeholder='to' />
         </div>
        { !isDiscountPage && (
-            <>
-            
+            <>            
             <div>
             <p className='filter__name'>Discounted items</p>
-        </div>
-        <div>
-        <input className='filter__input_checkbox' type="checkbox"
-         checked={showDiscount} onChange={(e)=>setShowDiscont(e.target.checked)} />
-        </div>
-        </>
+            </div>
+            <div>
+            <input className='filter__input_checkbox' type="checkbox"
+             checked={showDiscount} onChange={(e)=>setShowDiscont(e.target.checked)} />
+            </div>
+            </>
         )}
         <div className='sorted'> 
         <div>
@@ -96,10 +81,6 @@ const defaultState = useSelector((store) => store.product.product);
             </select>
         </div>
         </div>
-       
-        
-       
-
     </div>
   )
 }

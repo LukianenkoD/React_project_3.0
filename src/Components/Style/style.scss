@@ -23,9 +23,6 @@
 
       button {
         cursor: pointer;
-        // @media (max-width: 1200px) {
-        //   // width: 250px;
-        // }
       }
       @media (max-width: 1200px) {
         flex-wrap: wrap;
@@ -95,7 +92,7 @@
         font-size: 40px;
         font-style: normal;
         font-weight: 700;
-        line-height: 130%; /* 52px */
+        line-height: 130%;
         letter-spacing: 1.2px;
         margin-left: 30px;
         @media (max-width: 400px) {
@@ -109,10 +106,9 @@
         font-size: 12px;
         font-style: normal;
         font-weight: 700;
-        line-height: 130%; /* 15.6px */
+        line-height: 130%;
         letter-spacing: 0.36px;
         background-color: transparent;
-        // cursor: pointer;
         width: 120px;
         height: 30.968px;
         flex-shrink: 0;
@@ -123,8 +119,6 @@
     &_div {
       margin-bottom: 100px;
       @include flex(center, center, 35px);
-      
-    
         flex-wrap: wrap;
         display: flex;
         justify-content: center;
@@ -138,7 +132,7 @@
         font-size: 18px;
         font-style: normal;
         font-weight: 600;
-        line-height: 130%; /* 23.4px */
+        line-height: 130%;
         letter-spacing: 0.54px;
       }
       @media (max-width: 1400px) {
@@ -152,14 +146,14 @@
   }
 }
 .section3 {
-  // padding-left: 50px;
+  position: relative;
   h1 {
     color: #000;
     font-family: Montserrat;
     font-size: 40px;
     font-style: normal;
     font-weight: 700;
-    line-height: 130%; /* 52px */
+    line-height: 130%;
     letter-spacing: 1.2px;
     margin-left: 30px;
     margin-bottom: 10px;

@@ -6,7 +6,6 @@ import { useSelector } from "react-redux";
 function ProductsWithDiscount() {
 
   const product = useSelector((store) => store.product.newProduct);
-  console.log(product);
 
   return (
     <>
@@ -19,7 +18,6 @@ function ProductsWithDiscount() {
             }
         </div>
     </>
-    
   )
 }
 

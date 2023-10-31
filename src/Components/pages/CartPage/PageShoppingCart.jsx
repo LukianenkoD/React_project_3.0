@@ -15,9 +15,6 @@ function PageShoppingCart() {
   (Math.floor(elem.discont_price)
   ?Math.floor(elem.discont_price):Math.floor(elem.price))); 
 
-
-console.log(cartList);
-
   return (
     <>
       <div className="container">
@@ -47,24 +44,22 @@ console.log(cartList);
                 alt="product"
               />
               </div>
-              
               <div className="cart__title_centr">
               <div className="cart__title_div">
               <h2 className="cart__title_h2">{product.title}</h2>
               </div>
               <div className="cart quantity_inner">
-                <button onClick={()=>dispatch(decreaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))}  className="bt_minus">
+                <button onClick={()=>dispatch(decreaseItemByIdAction(product.id))}  className="bt_minus">
                   <img src={minus} alt="minus" />
                 </button>
                   <input
                   type="number"
                   min={1}
                   max={100}
-                  value={product.quantity?product.quantity:1/*cartList.map(elem=>elem.quantity)>1?cartList.map(elem=>elem.quantity):1}
-                  onChange={(e)=>e.target.value*/}
+                  value={product.quantity?product.quantity:1}
                   onChange={(e)=>e.target.value}
                   className="quantity"/>
-                <button onClick={()=>dispatch(increaseItemByIdAction(product.id/*Math.floor(product.discont_price)?Math.floor(product.discont_price):Math.round(product.price)*/))} className="bt_plus">
+                <button onClick={()=>dispatch(increaseItemByIdAction(product.id))} className="bt_plus">
                   <img src={plus} alt="plus" />
                 </button>
               </div>
@@ -87,12 +82,9 @@ console.log(cartList);
                       <div>
                         <h3 className="action__price_h4">{Math.round(product.price)}$</h3>
                       </div>
-                     
-                 
+                    </div>
+                  </div>
                  </div>
-                 </div>
-                 </div>
-                
                 </>
                :
                <>
@@ -100,21 +92,14 @@ console.log(cartList);
                 <div>
                 <h3 className="price__dolar">{Math.floor(product.price)}</h3>
                 </div>
-               <div>
-               <p className="price__p">$</p>
-               </div>
-                
+                <div>
+                 <p className="price__p">$</p>
                 </div>
-               </>
-                
-                }
+               </div>
+               </>}
               </div>
-              </div>
-             
-        
-             
             </div>
-              ))}
+            </div>))}
               <div className="line"></div>
          
         </div>
@@ -125,17 +110,12 @@ console.log(cartList);
               <p>Total</p>
             </div>
             <div>
-              {/* <h4>{`${cartList.map(elem=>elem.quantity)>1?cartList.map((elem)=> elem.quantity*elem.price):cartList.map(elem=>elem.price)}$`}</h4> */}
-              {/* <h4>{cartList.map(elem=>elem.total)}</h4> */}
               <h4>{array.reduce((acc,curr)=>acc+curr,0)}</h4>
             </div>
           </div>
           <div>
             <SendOrder/>
-            {/* <input type="tel" placeholder="Phone number" /> */}
           </div>
-
-          {/* <button>Order</button> */}
         </div>
       </div>
     </>

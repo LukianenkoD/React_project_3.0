@@ -33,13 +33,7 @@ export const productRed = (state={product:[], newProduct:[]}, action)=>{
     
            return {...state, newProduct:resultSort}
            
-       
-           
-       
-            
-               
             case SHOW_DISCONT:
-                console.log(action.payload);
                 let discont = state.newProduct.map((elem)=>{
                  if(elem.discont_price && action.payload){
                      return {
