@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import '../../Style/slider.scss';
-
-
 import './page_all_categories.scss';
 
 function AllCategories() {
@@ -14,19 +12,19 @@ function AllCategories() {
   const sliderSettings = {
     350: {
       slidesPerView: 1,
-      spaceBetween: 10,
+      spaceBetween: 5,
     },
     680: {
       slidesPerView: 2,
-      spaceBetween: 30,
+      spaceBetween: 5,
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 20,
+      spaceBetween: 5,
     },
     1400: {
       slidesPerView: 4,
-      spaceBetween: 30,
+      spaceBetween: 5,
     },
   };
  
@@ -55,7 +53,7 @@ function AllCategories() {
             return (
               <SwiperSlide  key={index}>
               <Link key={index} to={`/PageAllCategories/${product.id}`}>
-                 <div className='divCategories' key={product.id}>
+                 <div className='divCategories' key={index}>
                 <img className='imgCategories' src={`http://localhost:3333${product.image}`} alt="phot" />
                 <p className='pCategories'>{product.title}</p>
               </div>
