@@ -13,7 +13,7 @@
           font-size: 40px;
           font-style: normal;
           font-weight: 700;
-          line-height: 130%; /* 52px */
+          line-height: 130%;
           letter-spacing: 1.2px;
           margin-left: 30px;
         }
@@ -24,10 +24,9 @@
           font-size: 12px;
           font-style: normal;
           font-weight: 700;
-          line-height: 130%; /* 15.6px */
+          line-height: 130%;
           letter-spacing: 0.36px;
           background-color: transparent;
-          // cursor: pointer;
           width: 120px;
           height: 30.968px;
           flex-shrink: 0;
@@ -46,10 +45,10 @@
           color: #000;
           font-family: Montserrat;
           font-style: normal;
-          line-height: 130%; /* 23.4px */
+          line-height: 130%;
          font-size: 16px;
          font-weight: 500;
-         line-height: 130%; /* 20.8px */
+         line-height: 130%;
          letter-spacing: 0.48px;
         }
       }
@@ -57,35 +56,18 @@
   }
 
   .imgProductDiv{
-    height: 300px;
-    max-width: 290px;
+    max-height: 310px;
+    max-width: 280px;
     object-fit: cover;
     border-radius: 20px;
     cursor: grabbing;}
 
   .imgProduct{
-    // height: 100%;
-    // max-width: 290px;
+    height: 85%;
     width: 100%;
     object-fit: cover;
     border-radius: 20px;
     cursor: grabbing;
-    // @media (max-width: 960px) {
-    //   height: 250px;
-    //   max-width: 240px;
-    // }
-    // @media (max-width: 880px) {
-    //   height: 218px;
-    //   max-width: 216px;
-    // }
-    // @media (max-width: 750px) {
-    //   height: 180px;
-    //   max-width: 150px;
-    // }
-    // @media (max-width: 500px) {
-    //   height: 100px;
-    //   max-width: 100px;
-    // }
   }
 
   .imgProduct:hover .new-img-responsive{

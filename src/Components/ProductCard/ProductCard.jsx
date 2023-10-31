@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 function ProductCard (props){
 
     const {product} = props;
-    const discont = Math.floor(product.discont_price);
     const price = Math.floor(product.price);
 
     const navigate = useNavigate();
@@ -18,7 +17,7 @@ function ProductCard (props){
             <img onClick={() => navigate(`/PageAllCategories/:categorie/${product.id}`)} className='imgProduct' src={`http://localhost:3333${product.image}`} alt="phot"  />
           
           <AddToCart prod={product}/>
-          <div className="product__card_price">
+          <div key={product.id} className="product__card_price">
                   {product.discont_price?
                   <>
                     <h4>{Math.floor(product.discont_price)}$</h4>

@@ -23,13 +23,13 @@ function Header() {
             <img className="header__logo_img" onClick={() => navigate("/")} src={logo} alt="logo" />
         </div>
         <NavLink to='/PageAllCategories' className={({isActive})=>isActive?"active":""}>
-        <a href="#">
+        
           <div className="header__btn_catalog">
             <p>
               Catalog
             </p>
           </div>
-        </a>
+       
         </NavLink>
       </div>
 

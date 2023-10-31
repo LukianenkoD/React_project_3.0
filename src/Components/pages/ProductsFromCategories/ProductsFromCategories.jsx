@@ -14,7 +14,6 @@ const allProduct = useSelector((store) => store.product.newProduct);
 
 const {categorie} = useParams();
 const [categor, setCategor] = useState([]);
-   
 let categorProduct = allProduct.filter((element)=>element.categoryId===+categorie);
 
     useEffect(() => {
@@ -35,8 +34,8 @@ let categorProduct = allProduct.filter((element)=>element.categoryId===+categori
     
   return (
     <>
-     <div className='container categorieName'> { categor.category?.title}</div>
-    <Filter setProducts={setCategor} products={categorProduct} />
+     <div key={categorie} className='container categorieName'> { categor.category?.title}</div>
+    <Filter/>
    
      <div className='products__photo_div container'>
     {

@@ -81,6 +81,7 @@
 }
 .section2 {
   &__categories {
+    position: relative;
     &_header {
       margin-top: 50px;
       margin-bottom: 30px;
@@ -122,6 +123,7 @@
     &_div {
       margin-bottom: 100px;
       @include flex(center, center, 35px);
+      
     
         flex-wrap: wrap;
         display: flex;

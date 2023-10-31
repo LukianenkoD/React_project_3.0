@@ -1,15 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from "axios";
 import { Link } from 'react-router-dom';
 import {Swiper, SwiperSlide} from 'swiper/react';
 import 'swiper/css';
 import '../../Style/slider.scss';
-import { Navigation} from 'swiper/modules';
 
 
 import './page_all_categories.scss';
 
 function AllCategories() {
+
+  const swiperRef = useRef();
+  const sliderSettings = {
+    350: {
+      slidesPerView: 1,
+      spaceBetween: 10,
+    },
+    680: {
+      slidesPerView: 2,
+      spaceBetween: 30,
+    },
+    1024: {
+      slidesPerView: 3,
+      spaceBetween: 20,
+    },
+    1400: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+  };
  
   const [categories, setCategories] = useState([]);
   useEffect(() => {
@@ -28,13 +47,15 @@ function AllCategories() {
 
   return (
     <>
-     <Swiper watchSlidesProgress={true} slidesPerView={4}  className="mySwiper">
+     <button onClick={() => swiperRef.current.slidePrev()} className='btn_l'></button>
+     <Swiper navigation={{clickable: true,}} watchSlidesProgress={true} slidesPerView={4}  className="mySwiper"
+      breakpoints={sliderSettings} onBeforeInit={(swiper) => { swiperRef.current = swiper;}}>
      <div className="section2__categories_div container">
         {categories.map((product, index) => {
             return (
-              <SwiperSlide>
-              <Link key={product.id} to={`/PageAllCategories/${product.id}`}>
-                 <div key={product.id}>
+              <SwiperSlide  key={index}>
+              <Link key={index} to={`/PageAllCategories/${product.id}`}>
+                 <div className='divCategories' key={product.id}>
                 <img className='imgCategories' src={`http://localhost:3333${product.image}`} alt="phot" />
                 <p className='pCategories'>{product.title}</p>
               </div>
@@ -44,10 +65,10 @@ function AllCategories() {
         })}
       </div>
       </Swiper>
+      <button className='btn_r' onClick={() => swiperRef.current?.slideNext()}></button>
     </>
      );
     }
-     {/* <h1 className='container'>Categories</h1> */}
     
   
    

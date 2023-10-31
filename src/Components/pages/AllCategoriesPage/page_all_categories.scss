@@ -9,7 +9,7 @@
   font-size: 40px;
   font-style: normal;
   font-weight: 700;
-  line-height: 130%; /* 52px */
+  line-height: 130%;
   letter-spacing: 1.2px;  
 
 }
@@ -55,4 +55,35 @@
   font-weight: 600;
   line-height: 130%; /* 23.4px */
   letter-spacing: 0.54px;
+}
+.divCategories{
+  text-align: center;
+  height: 350px;
+  max-width: 318px;
+}
+.btn_r{
+  width: 50px;
+  height: 50px;
+  border: 0;
+  top: 260px;
+  right: 0px;
+  position: absolute;
+  z-index: 1;
+  background: url('../Img/recht.png');
+  filter: drop-shadow(16px 16px 20px red) invert(75%);
+  box-shadow: inset;
+  background-size: contain;
+  cursor: pointer;
+}
+.btn_l{
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  top: 260px;
+  position: absolute;
+  background: url('../Img/left.png');
+  filter: drop-shadow(16px 16px 20px red) invert(75%);
+  background-size: contain;
+  z-index: 2;
 }
